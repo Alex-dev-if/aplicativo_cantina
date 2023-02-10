@@ -16,7 +16,7 @@ export default function SignIn() {
             <Animatable.View animation="fadeInUp" style={styles.containerForm}>
                 <Text style={styles.title}>Email</Text>
                 <TextInput
-                    placeholder="Insira seu email"
+                    placeholder="Insira seu name"
                     style={styles.input}
                     />
                 
@@ -45,10 +45,13 @@ export default function SignIn() {
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor: 'purple'
-    },
+    container: {
+    backgroundColor: 'gold',
+    borderRadius: 10,
+    width: 225,
+    height: 250,
+    justifyContent: 'center '
+  },
     containerHeader:{
         marginTop: '14%',
         marginBottom: '8%',
