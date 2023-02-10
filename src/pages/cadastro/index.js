@@ -9,20 +9,30 @@ export default function SignIn() {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <Animatable.View animation="fadeInLeft" style={styles.containerHeader}>
-                <Text style={styles.mensagem}>É hora do cadastro!</Text>   
-            </Animatable.View>
+
 
             <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-                <Text style={styles.title}>Email</Text>
+            <Text style={styles.title}>Nome:</Text>
+
+            <TextInput
+                    placeholder="Informe seu nome"
+                    style={styles.input}
+                    />
+                    <Text style={styles.title}>E-mail:</Text>
+
+            <TextInput
+                placeholder="E-mail institucional"
+                style={styles.input}
+                    />
+                <Text style={styles.title}>Senha:</Text>
                 <TextInput
-                    placeholder="Insira um email"
+                    placeholder="Crie uma senha forte"
                     style={styles.input}
                     />
                 
-                <Text style={styles.title}>Senha</Text>
+                <Text style={styles.title}>Confirme sua senha:</Text>
                 <TextInput
-                    placeholder="Insira uma senha"
+                    placeholder="Insira a senha novamente"
                     style={styles.input}
                     />
 
@@ -41,20 +51,18 @@ export default function SignIn() {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        backgroundColor: 'purple'
+        backgroundColor: 'purple',
+        alignContent: 'center',
     },
-    containerHeader:{
-        marginTop: '14%',
-        marginBottom: '8%',
-        paddingStart: '5%',
-    },
+
     mensagem:{
         fontSize: 28,
         fontWeight: 'bold',
         color: '#fff'
     },
     containerForm:{
-        backgroundColor: '#fff',
+        justifyContent: 'center',
+        backgroundColor: 'orange',
         flex:1,
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
@@ -63,25 +71,34 @@ const styles = StyleSheet.create({
     },
     title:{
         fontSize: 20,
-        marginTop: 28,
+        alignSelf: 'center',
+        
     },
     input:{
-        borderBottomWidth: 1,
         height: 40,
-        marginBottom: 12,
-        fontSize: 16,
+        fontSize: 11,
+        backgroundColor: '#FFDEAD',
+        alignSelf: 'center',
+        width: 275,
+        marginTop: 20,
+        marginBottom: 20,
+        textAlign: 'center'
+        
     },
     button:{
-        backgroundColor: 'purple',
-        width: '100%',
-        borderRadius: 4,
+        backgroundColor: '#ffc9',
+        width: '35%',
+        borderRadius: 30,
         paddingVertical: 8,
-        marginTop: 14,
-        justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'flex-end',
+        borderWidth: 1,
+        borderColor: 'white',
+        
     },
     buttonText:{
-        color: '#fff',
+        color: 'black',
         fontSize: 18,
         fontWeight: 'bold'
     },
