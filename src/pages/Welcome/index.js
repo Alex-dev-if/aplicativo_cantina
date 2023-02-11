@@ -4,7 +4,8 @@ import {
     Text, 
     StyleSheet, 
     Image, 
-    TouchableOpacity 
+    TouchableOpacity,
+    ImageBackground
 } from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
@@ -14,59 +15,59 @@ import { useNavigation } from '@react-navigation/native';
 export default function Welcome() {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        
            
-           <View style={styles.containerLogo}>
-            <Animatable.Image 
-              animation="flipInY"
-              source={require('../../assets/logo.png')}
-              style={{ width: '100%' }}
-              resizeMode="contain"
-            />
-           </View>
-
-           <View style={styles.containerForm}>
-            <TouchableOpacity 
-            style={styles.button}
-            onPress={ () => navigation.navigate('SignIn')}>
-                <Text style={styles.buttonText}>Acessar</Text>
-            </TouchableOpacity>
-           </View>
-
-        </View>
+          <ImageBackground 
+          style={styles.backgroundTema}
+          source={require('../../assets/welcome1.png')}
+          >
+              <View style={styles.containerLogo}>
+                <Image 
+                style={styles.image}
+                source={require('../../assets/logo2.png')}/>
+              </View>
+                <TouchableOpacity 
+                style={styles.button}
+                onPress={ () => navigation.navigate('SignIn')}>
+                    <Text style={styles.buttonText}>Acessar</Text>
+                </TouchableOpacity>
+              
+          </ImageBackground>
+        
     );
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex:2,
-        backgroundColor: 'purple'
-    },
+
     containerLogo:{
-        flex:1,
-        backgroundColor: 'purple',
+        flex:2,
         justifyContent: 'center',
         alignItems: 'center'
     },
-    containerForm:{
-        flex:1,
-        backgroundColor: 'purple',
-        paddingStart: '5%',
-        paddingEnd: '5%',
+
+    backgroundTema:{
+      flex:1,
+      flexDirection: "column",
     },
+
+    image:{
+      width: 350,
+      height: 350,
+    },
+
     button:{
         position: 'absolute',
         backgroundColor: '#fff',
         borderRadius: 50,
-        paddingVertical: 8,
-        width: '60%',
+        paddingVertical: 16,
+        width: '40%',
         alignSelf: 'center',
-        bottom: '50%',
+        bottom: '25%',
         alignItems: 'center',
         justifyContent: 'center',
     },
     buttonText:{
-        fontSize: 18,
+        fontSize: 26,
         color: 'purple',
         fontWeight: 'bold'
     }
