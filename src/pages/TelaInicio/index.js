@@ -1,91 +1,56 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground} from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
 
-export default function SignIn() {
+import { useNavigation } from '@react-navigation/native';
+
+
+export default function TelaInicio() {
+    const navigation = useNavigation();
+
     return (
-        <View style={styles.container}>
-            <Animatable.View animation="fadeInLeft" style={styles.containerHeader}>
-                <Text style={styles.mensagem}>Bem vinde!</Text>   
-            </Animatable.View>
-
-            <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-                <Text style={styles.title}>Email</Text>
-                <TextInput
-                    placeholder="Insira seu email"
-                    style={styles.input}
-                    />
-                
-                <Text style={styles.title}>Senha</Text>
-                <TextInput
-                    placeholder="Insira sua senha"
-                    style={styles.input}
-                    />
-
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Entrar</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.buttonRegistro}>
-                    <Text style={styles.registroText}>Não tem conta? Clique aqui</Text>
-                </TouchableOpacity>
-
-            </Animatable.View>
+        <ImageBackground 
+          style={styles.backgroundTema}
+          source={require('../../assets/inicio.png')}
+          >
+            <TouchableOpacity 
+                style={styles.buttonOne}
+                onPress={ () => navigation.navigate('Reserva')}>
+            </TouchableOpacity>
             
-        </View>
+            <TouchableOpacity 
+                style={styles.buttonTwo}
+                onPress={ () => navigation.navigate('Menu')}>
+            </TouchableOpacity>
+        </ImageBackground>
+
     );
 }
 
 const styles = StyleSheet.create({
-    container:{
+    backgroundTema:{
         flex:1,
-        backgroundColor: 'purple'
-    },
-    containerHeader:{
-        marginTop: '14%',
-        marginBottom: '8%',
-        paddingStart: '5%',
-    },
-    mensagem:{
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#fff'
-    },
-    containerForm:{
-        backgroundColor: '#fff',
-        flex:1,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        paddingStart: '5%',
-        paddingEnd: '5%'
-    },
-    title:{
-        fontSize: 20,
-        marginTop: 28,
-    },
-    input:{
-        borderBottomWidth: 1,
-        height: 40,
-        marginBottom: 12,
-        fontSize: 16,
-    },
-    button:{
-        backgroundColor: 'purple',
-        width: '100%',
-        borderRadius: 4,
-        paddingVertical: 8,
-        marginTop: 14,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    buttonText:{
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
-    buttonRegistro:{
-        marginTop: 14,
-        alignSelf: 'center'
-    }
+        flexDirection: "column",
+      },
+      buttonTwo:{
+        height: 135,
+        width: 130,
+        alignSelf: 'flex-end',
+        top: 12,
+        marginRight: 33
+        
+            
+        
+      },
+      buttonOne:{
+        height: 135,
+        width: 130,
+        marginLeft: 35,
+        top: 147,
+        
+        
+      },
+      
+    
 })
