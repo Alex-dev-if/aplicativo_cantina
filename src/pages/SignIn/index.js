@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground} from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
 
@@ -8,86 +8,84 @@ import { useNavigation } from '@react-navigation/native';
 export default function SignIn() {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
-            <Animatable.View animation="fadeInLeft" style={styles.containerHeader}>
-                <Text style={styles.mensagem}>Bem vindo (a)!</Text>   
-            </Animatable.View>
-
-            <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-                <Text style={styles.title}>Email</Text>
+            
+            <ImageBackground style={styles.backgroundTema} source={require('../../assets/login.png')}>
+            <Animatable.View animation="fadeInUp" style={styles.subcontainer}>
                 <TextInput
-                    placeholder="Insira seu name"
+                    placeholder="E-mail"
                     style={styles.input}
                     />
                 
-                <Text style={styles.title}>Senha</Text>
                 <TextInput
-                    placeholder="Insira sua senha"
+                    placeholder="Senha"
                     style={styles.input}
                     />
 
                 <TouchableOpacity 
                 style={styles.button}
                 onPress={ () => navigation.navigate('TelaInicio')}>
-                    <Text style={styles.buttonText}>Entrar</Text>
+                    <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity 
-                style={styles.buttonRegistro}
-                onPress={ () => navigation.navigate('Cadastro')}>
-                    <Text style={styles.registroText}>Não tem conta? Clique aqui</Text>
-                </TouchableOpacity>
+                
 
             </Animatable.View>
-            
-        </View>
+            <TouchableOpacity 
+                style={styles.buttonRegistro}
+                onPress={ () => navigation.navigate('Cadastro')}>
+                    <Text style={styles.registroText}>Cadastrar</Text>
+                </TouchableOpacity>
+            </ImageBackground>
+        
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-    backgroundColor: 'gold',
-    borderRadius: 10,
-    width: 225,
-    height: 250,
-    justifyContent: 'center '
-  },
-    containerHeader:{
-        marginTop: '14%',
-        marginBottom: '8%',
-        paddingStart: '5%',
+    backgroundTema:{
+        flex: 1,
+        flexDirection: "column"
     },
-    mensagem:{
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#fff'
+    subcontainer:{
+        height: 380,
+        marginHorizontal: 20,
+        borderRadius: 15,
+        width: 290,
+        alignSelf: 'center',
+        top: 290
     },
-    containerForm:{
-        backgroundColor: '#fff',
-        flex:1,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        paddingStart: '5%',
-        paddingEnd: '5%'
+    
+    container:{
+        backgroundColor: 'white',
+        borderRadius: 10,
+        flex: 1,
+        justifyContent: 'center',
+        
     },
-    title:{
-        fontSize: 20,
-        marginTop: 28,
-    },
+    
     input:{
-        borderBottomWidth: 1,
-        height: 40,
-        marginBottom: 12,
+        borderWidth: 1,
+        borderRadius: 300,
+        textAlign: 'center',
         fontSize: 16,
+        marginLeft: 20,
+        marginRight: 20,
+        borderColor: 'green',
+        height: 50,
+        width: 200,
+        alignSelf: 'center',
+        marginTop: 30,
+        top: 70
     },
     button:{
         backgroundColor: 'purple',
-        width: '100%',
+        width: '40%',
         borderRadius: 4,
-        paddingVertical: 8,
         marginTop: 14,
-        justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'flex-end',
+        top: 90
+        
     },
     buttonText:{
         color: '#fff',
@@ -96,6 +94,7 @@ const styles = StyleSheet.create({
     },
     buttonRegistro:{
         marginTop: 14,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        top: 200
     }
 })
