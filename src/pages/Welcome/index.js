@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     },
 
     image:{
-      width: 350,
-      height: 350,
+      width: 250,
+      height: 250,
     },
 
     button:{
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         paddingVertical: 16,
         width: '40%',
         alignSelf: 'center',
-        bottom: '25%',
+        bottom: '20%',
         alignItems: 'center',
         justifyContent: 'center',
     },
