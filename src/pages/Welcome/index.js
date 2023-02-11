@@ -19,7 +19,7 @@ export default function Welcome() {
            
           <ImageBackground 
           style={styles.backgroundTema}
-          source={require('../../assets/welcome1.png')}
+          source={require('../../assets/welcome2.png')}
           >
               <View style={styles.containerLogo}>
                 <Image 
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         backgroundColor: '#fff',
         borderRadius: 50,
-        paddingVertical: 16,
+        paddingVertical: 11,
         width: '40%',
         alignSelf: 'center',
         bottom: '20%',
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     buttonText:{
-        fontSize: 26,
+        fontSize: 20,
         color: 'purple',
         fontWeight: 'bold'
     }
