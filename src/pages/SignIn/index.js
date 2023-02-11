@@ -11,30 +11,31 @@ export default function SignIn() {
             
             <ImageBackground style={styles.backgroundTema} source={require('../../assets/login.png')}>
             <Animatable.View animation="fadeInUp" style={styles.subcontainer}>
-                <TextInput
-                    placeholder="E-mail"
-                    style={styles.input}
-                    />
                 
-                <TextInput
-                    placeholder="Senha"
-                    style={styles.input}
-                    />
+                <View style={styles.containerInput}>
+                    <TextInput
+                        placeholder="E-mail"
+                        style={styles.input}
+                        />
+                    
+                    <TextInput
+                        placeholder="Senha"
+                        style={styles.input}
+                        />
+                </View>
 
                 <TouchableOpacity 
-                style={styles.button}
+                style={styles.buttonOne}
                 onPress={ () => navigation.navigate('TelaInicio')}>
-                    <Text style={styles.buttonText}>Login</Text>
+                    <Text style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity>
 
-                
-
-            </Animatable.View>
             <TouchableOpacity 
-                style={styles.buttonRegistro}
+                style={styles.buttonTwo}
                 onPress={ () => navigation.navigate('Cadastro')}>
-                    <Text style={styles.registroText}>Cadastrar</Text>
+                    <Text style={styles.buttonText}>CADASTRAR</Text>
                 </TouchableOpacity>
+            </Animatable.View>    
             </ImageBackground>
         
     );
@@ -45,13 +46,18 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column"
     },
+    containerInput:{
+        
+    },
+
     subcontainer:{
         height: 380,
+        paddingVertical: 5,
         marginHorizontal: 20,
         borderRadius: 15,
         width: 290,
         alignSelf: 'center',
-        top: 290
+        top: '38.5%',
     },
     
     container:{
@@ -63,38 +69,50 @@ const styles = StyleSheet.create({
     },
     
     input:{
-        borderWidth: 1,
+        borderWidth: 2,
         borderRadius: 300,
         textAlign: 'center',
         fontSize: 16,
         marginLeft: 20,
         marginRight: 20,
-        borderColor: 'green',
+        borderColor: '#007d00',
         height: 50,
         width: 200,
         alignSelf: 'center',
         marginTop: 30,
-        top: 70
+        top: 17
     },
-    button:{
-        backgroundColor: 'purple',
+    buttonOne:{
+        backgroundColor: '#fff',
         width: '40%',
-        borderRadius: 4,
+        borderRadius: 300,
+        marginTop: 14,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        top: 30,
+        height: 35,
+    },
+    buttonText:{
+        color: 'black',
+        fontSize: 13,
+        fontWeight: 'bold'
+    },
+    buttonTwo:{
+        borderWidth: 1,
+        borderColor: "#fff",
+        width: '40%',
+        borderRadius: 300,
         marginTop: 14,
         alignItems: 'center',
         alignSelf: 'center',
-        justifyContent: 'flex-end',
-        top: 90
-        
+        justifyContent: 'center',
+        top: 30,
+        height: 35,
     },
-    buttonText:{
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
-    buttonRegistro:{
+    /*buttonRegistro:{
         marginTop: 14,
         alignSelf: 'center',
-        top: 200
-    }
+        top: 400
+    }*/
 })
