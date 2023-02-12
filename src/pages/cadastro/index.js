@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 
 import * as Animatable from 'react-native-animatable'
 
@@ -8,9 +8,10 @@ import { useNavigation } from '@react-navigation/native';
 export default function SignIn() {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
-
-
+        <ImageBackground 
+          style={styles.backgroundTema}
+          source={require('../../assets/cadastro.png')}
+          >
             <Animatable.View animation="fadeInUp" style={styles.containerForm}>
             <Text style={styles.title}>Nome:</Text>
 
@@ -36,24 +37,24 @@ export default function SignIn() {
                     style={styles.input}
                     />
 
-                <TouchableOpacity 
+            </Animatable.View>
+            
+            <TouchableOpacity 
                 style={styles.button}
                 onPress={ () => navigation.navigate('SignIn')}>
                     <Text style={styles.buttonText}>Cadastrar</Text>
-                </TouchableOpacity>
-
-            </Animatable.View>
+            </TouchableOpacity>
             
-        </View>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
-    container:{
+
+    backgroundTema:{
         flex:1,
-        backgroundColor: 'purple',
-        alignContent: 'center',
-    },
+        flexDirection: "column",
+      },
 
     mensagem:{
         fontSize: 28,
@@ -61,13 +62,13 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     containerForm:{
-        justifyContent: 'center',
-        backgroundColor: 'orange',
+        
         flex:1,
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         paddingStart: '5%',
-        paddingEnd: '5%'
+        paddingEnd: '5%',
+        top: '14%'
     },
     title:{
         fontSize: 20,
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         width: 275,
         marginTop: 20,
-        marginBottom: 20,
+        marginBottom: 29,
         textAlign: 'center'
         
     },
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         borderWidth: 1,
         borderColor: 'white',
+        bottom: 200
         
     },
     buttonText:{
