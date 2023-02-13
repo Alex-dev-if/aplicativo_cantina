@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFDEAD',
         alignSelf: 'center',
         width: 275,
-        marginTop: 20,
-        marginBottom: 29,
+        marginTop: '5%',
+        marginBottom: '9%',
         textAlign: 'center'
         
     },
