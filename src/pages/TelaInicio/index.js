@@ -12,7 +12,7 @@ export default function TelaInicio() {
     return (
         <ImageBackground 
           style={styles.backgroundTema}
-          source={require('../../assets/inicio.png')}
+          source={require('../../assets/menu.png')}
           >
             <TouchableOpacity 
                 style={styles.buttonOne}
@@ -22,6 +22,12 @@ export default function TelaInicio() {
             <TouchableOpacity 
                 style={styles.buttonTwo}
                 onPress={ () => navigation.navigate('Menu')}>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+                style={styles.buttonPagamento}
+                onPress={ () => navigation.navigate('TelaPix')}>
+                <Text style={styles.buttonText}>Pagamentos</Text>
             </TouchableOpacity>
         </ImageBackground>
 
@@ -33,24 +39,34 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection: "column",
       },
+
       buttonTwo:{
         height: 135,
         width: 130,
         alignSelf: 'flex-end',
         top: 12,
-        marginRight: 33
-        
-            
-        
+        marginRight: 33  
       },
+
       buttonOne:{
         height: 135,
         width: 130,
         marginLeft: 35,
         top: 147,
-        
-        
       },
-      
-    
+      buttonPagamento:{
+        backgroundColor: '#ffc9',
+        width: '35%',
+        borderRadius: 30,
+        paddingVertical: 8,
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'flex-end',
+        borderWidth: 1,
+        borderColor: 'white',
+        top: 300
+      },
+      buttonText:{
+        fontSize: 20
+      }
 })
