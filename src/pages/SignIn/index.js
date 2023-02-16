@@ -1,22 +1,57 @@
-import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ImageBackground} from 'react-native';
+import React, { Component } from 'react';
+
+import { StyleSheet, View, TextInput, ImageBackground, TouchableOpacity, Text} from 'react-native';
+import * as Animatable from 'react-native-animatable'
 import  Icon  from 'react-native-vector-icons/AntDesign';
 
-import * as Animatable from 'react-native-animatable'
 
-import { useNavigation } from '@react-navigation/native';
 
-export default function SignIn() {
-    const navigation = useNavigation();
-    return (
+
+export default class SignIn extends Component {
+
+    
+  constructor()
+    {
+        super();
+ 
+        this.state = 
+          { 
+ 
+            TextInputValue: ''
+ 
+          }
+    }
+    
+
+    
+
+  Nested_If_Else=()=>{
+
+    if( this.state.TextInputValue == "asn6@aluno.ifal.edu.br" )
+    {
+
+        this.props.navigation.navigate("TelaInicio")
+    }
+    else
+    {
+
+        this.props.navigation.navigate("Cadastro")
+
+    }
+  }
+ 
+ render() {
+
+   return (
         <ImageBackground style={styles.backgroundTema} source={require('../../assets/login.png')}>
             <Animatable.View animation="fadeInUp" style={styles.subcontainer}>
-                
-                <View style={styles.containerInput}>
+            <View style={styles.containerInput}>
                     <View>
                         <TextInput
                             placeholder="E-mail"
                             style={styles.input}
+                            onChangeText = { ( text ) => { this.setState({ TextInputValue: text })} } 
+
                             />
                         <Icon style={styles.icon} name="mail" size={25} color='#fff'/>
                     </View>
@@ -32,7 +67,7 @@ export default function SignIn() {
 
                 <TouchableOpacity 
                 style={styles.buttonOne}
-                onPress={ () => navigation.navigate('TelaInicio')}>
+                onPress={this.Nested_If_Else}>
                     <Text style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity>
 
@@ -41,15 +76,40 @@ export default function SignIn() {
                 onPress={ () => navigation.navigate('Cadastro')}>
                     <Text style={styles.buttonText}>CADASTRAR</Text>
                 </TouchableOpacity>
-            </Animatable.View>    
-        </ImageBackground>
-    );
-}
 
+        
+        </Animatable.View>    
+
+        </ImageBackground>
+ 
+           
+   );
+ }
+}
+ 
 const styles = StyleSheet.create({
-    backgroundTema:{
-        flex: 1,
-        flexDirection: "column"
+ 
+  MainContainer :{
+      
+      flex:1,
+      justifyContent: 'center',
+      padding: 10,
+  
+  },
+  backgroundTema:{
+    flex: 1,
+    flexDirection: "column"
+},
+
+  TextInputStyle:
+    {
+      width: '100%',
+      borderWidth: 1,
+      borderColor: '#009688',
+      height: 40,
+      borderRadius: 10,
+      marginBottom: 10,
+      textAlign: 'center',
     },
     subcontainer:{
         height: 380,
@@ -113,4 +173,5 @@ const styles = StyleSheet.create({
         top: 30,
         height: 35,
     },
-})
+ 
+});
